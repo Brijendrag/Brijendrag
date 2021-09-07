@@ -1,0 +1,25 @@
+1. #include <stdio.h>
+2. int main() {
+3. char line[150];
+   
+4. printf("Enter a string: ");
+5. fgets(line, sizeof(line), stdin); // take input
+
+
+6.   for (int i = 0, j; line[i] != '\0'; ++i) {
+
+7.    // enter the loop if the character is not an alphabet
+8.    // and not the null character                                                
+9.      while (!(line[i] >= 'a' && line[i] <= 'z') && !(line[i] >= 'A' && line[i] <= 'Z') && !(line[i] == '\0')) {
+10.      for (j = i; line[j] != '\0'; ++j) 
+11.          // if jth element of line is not an alphabet,
+12.          // assign the value of (j+1)th element to the jth element
+13.            line[j] = line[j + 1];
+14.       }
+15.       line[j] = '\0';
+16 .      }
+17.  }
+18.  printf("Output String: ");
+19.   puts(line);
+20.   return 0;
+21. }
